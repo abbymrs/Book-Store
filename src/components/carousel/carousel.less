@@ -1,0 +1,83 @@
+@import "../../../node_modules/antd/lib/style/color/colors.less";
+@import "../../../node_modules/antd/lib/style/themes/default.less";
+
+.ant-carousel .slick-slide {
+    text-align: center;
+    height: 350px;
+    line-height: 350px;
+    overflow: hidden;
+
+    >.slider {
+        height: 100%;
+
+        img {
+            max-width: 100%
+        }
+    }
+}
+
+.carousel-wrapper {
+    width: 350px;
+
+    .sub-carousel-wrapper {
+        position: relative;
+        height: 60px;
+
+        .sub-carousel-content {
+            width: 280px;
+            overflow: hidden;
+            height: 100%;
+            position: relative;
+            margin: 0 35px;
+
+            .sub-carousel {
+                padding: 0;
+                list-style: none;
+                margin: 0;
+                height: 60px;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                li.sub-image {
+                    width: 60px;
+                    height: 100%;
+                    padding: 0 10px;
+                    text-align: center;
+                    cursor: pointer;
+                    border: 2px solid transparent;
+                    float: left;
+                    margin-right: 10px;
+
+                    img {
+                        max-width: 100%;
+                    }
+                }
+
+                li.red-border {
+                    border: 2px solid @red-6;
+                }
+            }
+
+
+        }
+
+        .left-arrow,
+        .right-arrow {
+            position: absolute;
+            font-size: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: @comment-author-time-color;
+        }
+
+        .left-arrow {
+            left: 0;
+        }
+
+        .right-arrow {
+            right: 0;
+        }
+    }
+}

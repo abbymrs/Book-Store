@@ -1,0 +1,103 @@
+@import "../../../node_modules/antd/lib/style/themes/default.less";
+
+.detail-wrapper {
+
+    .detail-top-right {
+        align-self: flex-start;
+        margin-left: 50px;
+
+        >div {
+            line-height: 40px;
+        }
+
+        .detail-top-desc {
+            margin-bottom: 10px;
+        }
+
+        .delivery-address-wrapper {
+            display: inline-block;
+            position: relative;
+
+            .delivery-address {
+                display: inline-block;
+            }
+
+            .dropdown-panel {
+                position: absolute;
+                z-index: 10;
+                background-color: #fff;
+            }
+
+            .dropdown-tab-panel {
+                border: 1px solid @normal-color;
+                padding: 10px 20px 10px;
+
+                ul {
+                    list-style: none;
+                    padding: 0;
+
+                    li {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .detail-top-actions {
+
+            .detail-top-quantity {
+                position: relative;
+                width: 100px;
+
+                i {
+                    cursor: pointer;
+                    z-index: 1;
+                    position: absolute;
+                    top: 50%;
+                    height: 31px;
+                    line-height: 31px;
+                    transform: translateY(-50%);
+
+                    &.decrease {
+                        border-right: 1px solid @normal-color;
+                        left: 5px;
+                        padding-right: 5px;
+                    }
+
+                    &.increase {
+                        border-left: 1px solid @normal-color;
+                        right: 5px;
+                        padding-left: 5px;
+                    }
+                }
+
+                .quantity-num {
+                    padding: 0 30px;
+                    text-align: center;
+                }
+            }
+
+            .add-to-cart {
+                margin: 0 10px;
+            }
+        }
+
+        .dt {
+            width: 70px;
+        }
+    }
+
+    .book-detail-content {
+        padding-bottom: 80px;
+
+        h2 {
+            padding: 5px 10px;
+            background-color: @normal-color;
+            margin-top: 20px;
+        }
+    }
+}
+
+.address-options {
+    display: none;
+}

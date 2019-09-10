@@ -1,0 +1,123 @@
+@import "../../../node_modules/antd/lib/style/color/colors.less";
+@import "../../../node_modules/antd/lib/style/themes/default.less";
+
+.books-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+
+    .book-item {
+        width: 240px;
+        padding: 35px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        border: 1px solid transparent;
+
+        &:hover {
+            border-color: @border-color-base;
+        }
+
+        .image-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            cursor: pointer;
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .price {
+            color: @red-6;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .book-detail-section {
+            font-size: @font-size-sm;
+
+            &>div:not(.hover-show) {
+                margin-bottom: 5px;
+            }
+
+            .book-title {
+                display: flex;
+                cursor: pointer;
+
+                .title {
+                    margin-right: 5px;
+                }
+
+                .brief-desc {
+                    color: @gold-6;
+                    max-width: 50%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
+                }
+            }
+
+            .actions {
+                cursor: pointer;
+
+                &:hover {
+                    .separator {
+                        background-color: @red-6;
+                    }
+                }
+
+                span {
+                    padding: 3px 5px;
+                    border: 1px solid @border-color-base;
+
+                    &:hover {
+                        border: 1px solid @red-6;
+                        color: @red-6;
+                    }
+
+                    i {
+                        margin-right: 2px;
+                    }
+
+                    &.add-favorite {
+                        border-right-width: 0;
+                    }
+
+                    &.add-to-cart {
+                        border-left-width: 0;
+                        width: 88px;
+                    }
+                }
+
+                .separator {
+                    display: inline-block;
+                    width: 1px;
+                    height: 26px;
+                    background-color: @border-color-base;
+                }
+            }
+
+            .hover-show {
+                padding: 5px 10px;
+                background-color: @background-color-base;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                display: none;
+            }
+        }
+
+        &:hover {
+            .book-detail-section .hover-show {
+                display: block;
+            }
+        }
+    }
+}
