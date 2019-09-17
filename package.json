@@ -22,11 +22,12 @@
     "typescript": "^3.6.3"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "dev": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "start": "run-p dev server"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,6 +50,8 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@types/react": "^16.9.2",
     "babel-plugin-import": "^1.12.1",
+    "nodemon": "^1.19.2",
+    "npm-run-all": "^4.1.5",
     "redux-devtools": "^3.5.0",
     "redux-logger": "^3.0.6",
     "typescript-tools": "^0.3.1"
