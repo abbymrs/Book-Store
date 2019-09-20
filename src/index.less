@@ -32,6 +32,11 @@ code {
     align-items: center;
 }
 
+.align-end {
+    display: flex;
+    align-items: flex-end;
+}
+
 .center {
     &:extend(.align-vertical);
     justify-content: center;
@@ -45,6 +50,11 @@ code {
 .align-around {
     &:extend(.align-vertical);
     justify-content: space-around;
+}
+
+.align-end-x {
+    &:extend(.align-vertical);
+    justify-content: flex-end;
 }
 
 .font-sm {
@@ -65,4 +75,15 @@ code {
     i {
         margin-right: 3px;
     }
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+.font-sm{
+    font-size: @font-size-sm;
 }

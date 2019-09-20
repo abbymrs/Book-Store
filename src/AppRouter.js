@@ -8,6 +8,8 @@ import Login from './containers/login/login';
 import Register from './containers/register/register';
 import BookDetail from './containers/book-detail/book-detail';
 import UserCenter from './containers/user-center/user-center';
+import Cart from "./containers/cart/cart";
+import OrderDetail from './containers/order-detail/order-detail';
 
 import logo from './logo.svg';
 import SearchInput from './components/search/search';
@@ -20,7 +22,8 @@ const routes = [
     { path: '/login', component: Login },
     { path: '/register', component: Register },
     { path: '/books/:id', component: BookDetail },
-    { path: '/address/:name', component: UserCenter }
+    { path: '/address/:name', component: UserCenter },
+    { path: '/orders/getOrderInfo', component: OrderDetail }
 ];
 const dropdownMenus = [
     { path: '/center', component: UserCenter },
@@ -29,9 +32,12 @@ const dropdownMenus = [
     { path: '/orders/nopayments', component: UserCenter },
     { path: '/orders/ontheway', component: UserCenter },
     { path: '/favorites', component: UserCenter },
-    { path: '/password', component: UserCenter }
+    { path: '/password', component: UserCenter },
+    { path: '/cart', component: Cart }
 ];
-const routeComponents = routes.concat(dropdownMenus).map(({ path, component }, key) => <Route exact path={path} component={component} key={key} />);
+const routeComponents = routes.concat(dropdownMenus).map(({ path, component }, key) => (
+    <Route exact path={path} component={component} key={key} />
+));
 const dropdownDisplayNames = [
     '个人中心',
     '收货地址',
@@ -85,7 +91,7 @@ class AppRouter extends Component {
                             </div>
                         </div>
                     </Header>
-                    <Content style={{ padding: '0 50px', margin: '64px auto 0' }}>
+                    <Content className="route-content">
                         <Switch>
                             {routeComponents}
                         </Switch>
