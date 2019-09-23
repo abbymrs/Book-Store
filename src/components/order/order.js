@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './order.less';
 
 export default function Order(props) {
-    function viewBookDetail(e) {
+    function viewBookDetail(book, e) {
+        e.preventDefault();
+        props.history.push('/books/' + book.id);
+    }
+    function applyPostSaleService(e) {
         e.preventDefault();
     }
     const { orders } = props;
@@ -12,7 +16,7 @@ export default function Order(props) {
                 {orders.map(order => (
                     <li className="order-list-item" key={order.number}>
                         <div className="order-list-item-header align-vertical">
-                            <div className="col1">{order.date}</div>
+                            <div className="col1 order-date">{order.date}</div>
                             <div className="col2">
                                 <span>订单编号：</span>
                                 <span>{order.number}</span>
@@ -26,23 +30,23 @@ export default function Order(props) {
                                 <span>{order.price}</span>
                             </div>
                         </div>
-                        <ul>
-                            {order.books.map(book => (
+                        <ul className="order-list-sub">
+                            {order.books.map((book, idx) => (
                                 <li className="align-vertical order-item" key={book.id}>
                                     <div className="col1 order-img align-vertical">
                                         <img src={book.img} alt="" />
-                                        <a href="#" onClick={viewBookDetail}>{book.title}</a>
+                                        <a href="/" onClick={viewBookDetail.bind(this, book)}>{book.title}</a>
                                     </div>
                                     <div className="col2">x{book.quantity}</div>
                                     <div className="col3">
-                                        <a href="#" onClick={viewBookDetail}>申请售后</a>
-                                    </div>
-                                    <div className="col4">
-                                        <a href="#" onClick={viewBookDetail}>查看详情</a>
+                                        <a href="/" onClick={applyPostSaleService}>申请售后</a>
                                     </div>
                                 </li>
                             ))}
                         </ul>
+                        <div className="col4 view-order-detail">
+                            <a href="/" onClick={props.action.bind(this, order)}>{props.actionText}</a>
+                        </div>
                     </li>
                 ))}
 

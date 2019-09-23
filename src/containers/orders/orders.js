@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Tabs } from 'antd';
+import { Layout, Tabs } from 'antd';
 import './orders.less';
 
 import Order from '../../components/order/order';
 
 const { TabPane } = Tabs;
-const { Content, Sider } = Layout;
+const { Content } = Layout;
 
 export default class Orders extends Component {
 
 	state = {
+		selectedTab: '1',
 		orders: [
 			{
 				date: '2019-09-20 16:53:39',
@@ -66,48 +67,52 @@ export default class Orders extends Component {
 		]
 	}
 	callback = (key) => {
-		console.log(key);
+		this.setState({
+			selectedTab: key
+		});
+	}
+	viewOrderDetail = (order, e) => {
+		e.preventDefault();
+		this.props.history.push('/user/orders/' + order.number);
 	}
 	render() {
+		const { props } = this;
+		const orderListprops = {
+			action: this.viewOrderDetail,
+			actionText: '查看详情'
+		};
+		const waitPaymentProps = {
+			action: this.viewOrderDetail,
+			actionText: '去付款'
+		};
+		const waitDeliveryProps = {
+			action: this.viewOrderDetail,
+			actionText: '确认收货'
+		};
 		return (
-			<Layout className="order-list-wrapper">
-				<Sider width={150}>
-					<Menu
-						mode="inline"
-						defaultSelectedKeys={['1']}
-						style={{ height: '100%', borderRight: 0 }}
-					>
-						<Menu.Item key="1">我的订单</Menu.Item>
-						<Menu.Item key="2">收货地址</Menu.Item>
-						<Menu.Item key="3">个人收藏</Menu.Item>
-						<Menu.Item key="4">忘记密码</Menu.Item>
-
-					</Menu>
-				</Sider>
-				<Layout style={{ padding: '0 24px 24px' }}>
-					<div className="order-list-header">我的订单</div>
-					<Content
-						style={{
-							background: '#fff',
-							padding: 24,
-							margin: 0,
-							minHeight: 280,
-						}}
-					>
-						<Tabs defaultActiveKey="1" onChange={this.callback}>
-							<TabPane tab="全部订单" key="1">
-								<Order orders={this.state.orders} />
-							</TabPane>
-							<TabPane tab="待付款" key="2">
-								Content of Tab Pane 2
-    						</TabPane>
-							<TabPane tab="待收货" key="3">
-								Content of Tab Pane 3
-    						</TabPane>
-						</Tabs>
-					</Content>
-				</Layout>
-			</Layout>
+			<div className="order-list-wrapper">
+				<div className="order-list-header">我的订单</div>
+				<Content
+					style={{
+						background: '#fff',
+						padding: 24,
+						margin: 0,
+						minHeight: 280,
+					}}
+				>
+					<Tabs defaultActiveKey="1" onChange={this.callback}>
+						<TabPane tab="全部订单" key="1">
+							<Order orders={this.state.orders} {...Object.assign(orderListprops, props)} />
+						</TabPane>
+						<TabPane tab="待付款" key="2">
+							<Order orders={this.state.orders} {...Object.assign(waitPaymentProps, props)} />
+						</TabPane>
+						<TabPane tab="待收货" key="3">
+							<Order orders={this.state.orders} {...Object.assign(waitDeliveryProps, props)} />
+						</TabPane>
+					</Tabs>
+				</Content>
+			</div>
 		);
 	}
 }
