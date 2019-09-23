@@ -1,0 +1,81 @@
+@import "../../../node_modules/antd/lib/style/themes/default.less";
+@import "../../../node_modules/antd/lib/style/color/colors.less";
+@import '../../mixin.less';
+
+.order-list-wrapper {
+    ul {
+        padding: 0;
+    }
+
+    a {
+        color: @text-color;
+
+        &:hover {
+            color: @red-6;
+        }
+    }
+
+    .col1 {
+        width: 40%;
+    }
+
+    .col2 {
+        width: 25%;
+    }
+
+    .col3 {
+        width: 15%;
+    }
+
+    .col4 {
+        width: 20%;
+    }
+
+    .order-list-content {
+        padding: 0;
+
+        .order-list-item {
+            border: 1px solid @normal-color;
+            margin-bottom: 10px;
+
+            .order-list-item-header {
+                padding: 10px;
+                border-bottom: 1px solid @normal-color;
+                background-color: @background-color-base;
+            }
+
+            .order-item {
+                padding: 10px;
+                justify-self: flex-end;
+                border-bottom: 1px solid @normal-color;
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+
+                .order-img {
+                    img {
+                        min-width: 80px;
+                        max-width: 80px;
+                        height: 80px;
+                        padding: 3px;
+                        margin-right: 10px;
+                        border: 1px solid @normal-color;
+                    }
+                }
+
+                .col1 {
+                    a {
+                        .elipsis();
+                    }
+                }
+
+                .col2,
+                .col3,
+                .col4 {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

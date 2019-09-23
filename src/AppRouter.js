@@ -10,6 +10,8 @@ import BookDetail from './containers/book-detail/book-detail';
 import UserCenter from './containers/user-center/user-center';
 import Cart from "./containers/cart/cart";
 import OrderDetail from './containers/order-detail/order-detail';
+import DoneOrder from './containers/done-order/done-order';
+import Orders from './containers/orders/orders';
 
 import logo from './logo.svg';
 import SearchInput from './components/search/search';
@@ -23,12 +25,13 @@ const routes = [
     { path: '/register', component: Register },
     { path: '/books/:id', component: BookDetail },
     { path: '/address/:name', component: UserCenter },
-    { path: '/orders/getOrderInfo', component: OrderDetail }
+    { path: '/orders/getOrderInfo', component: OrderDetail },
+    { path: '/orders/done', component: DoneOrder },
 ];
 const dropdownMenus = [
     { path: '/center', component: UserCenter },
     { path: '/address', component: UserCenter },
-    { path: '/orders', component: UserCenter },
+    { path: '/orders', component: Orders },
     { path: '/orders/nopayments', component: UserCenter },
     { path: '/orders/ontheway', component: UserCenter },
     { path: '/favorites', component: UserCenter },

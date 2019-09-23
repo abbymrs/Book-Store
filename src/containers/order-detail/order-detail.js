@@ -52,6 +52,9 @@ class OrderDetail extends Component {
             isShowMore: !state.isShowMore
         }));
     }
+    submitOrder = () => {
+        this.props.history.push('/orders/done');
+    }
     render() {
         const { isShowMore, selectedAdd } = this.state;
         return (
@@ -141,7 +144,7 @@ class OrderDetail extends Component {
                     </div>
                 </div>
                 <div className="align-end-x submit-order">
-                    <Button type="danger" size="large">提交订单</Button>
+                    <Button type="danger" size="large" onClick={this.submitOrder}>提交订单</Button>
                 </div>
             </div>
         );
