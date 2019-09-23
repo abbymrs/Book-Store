@@ -1,3 +1,5 @@
+@import "../node_modules/antd/lib/style/themes/default.less";
+
 .container {
     background-color: #fff;
 
@@ -37,6 +39,12 @@
         max-width: 1024px;
     }
 
+    .route-content {
+        width: 1024px;
+        padding: 0 50px;
+        margin: 64px auto 0;
+    }
+
     .ant-layout-footer {
         position: fixed;
         left: 0;
@@ -60,5 +68,37 @@
     .ant-menu-vertical-right .ant-menu-item:not(:last-child),
     .ant-menu-inline .ant-menu-item:not(:last-child) {
         margin-bottom: 0;
+    }
+}
+
+.quantity-wrapper {
+    position: relative;
+    width: 100px;
+
+    i {
+        cursor: pointer;
+        z-index: 1;
+        position: absolute;
+        top: 50%;
+        height: 31px;
+        line-height: 31px;
+        transform: translateY(-50%);
+
+        &.decrease {
+            border-right: 1px solid @normal-color;
+            left: 5px;
+            padding-right: 5px;
+        }
+
+        &.increase {
+            border-left: 1px solid @normal-color;
+            right: 5px;
+            padding-left: 5px;
+        }
+    }
+
+    .quantity-num {
+        padding: 0 30px;
+        text-align: center;
     }
 }

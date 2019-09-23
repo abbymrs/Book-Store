@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Button, Icon, Tabs, Input } from 'antd';
+import { Button, Icon, Tabs } from 'antd';
 
 import './book-detail.less';
 import Carousel from "../../components/carousel/carousel";
+import Quantity from '../../components/quantity/quantity';
 
 const { TabPane } = Tabs;
 
@@ -11,7 +12,8 @@ class BookDetail extends Component {
 	state = {
 		selectedAddress: '深圳市宝安区',
 		isShowMenu: false,
-		activeTab: '1'
+		activeTab: '1',
+		quantity: 1
 	}
 	composedAdd = '';
 	componentDidMount() {
@@ -50,6 +52,12 @@ class BookDetail extends Component {
 			activeTab: activeKey
 		});
 	};
+	onIncrease = () => {
+
+	}
+	onDecrease = () => {
+
+	}
 
 	render() {
 		const images = [
@@ -313,11 +321,7 @@ class BookDetail extends Component {
 							<span>{bookDetail.weight}</span>
 						</div>
 						<div className="detail-top-actions">
-							<span className="detail-top-quantity">
-								<Icon type="minus" className="decrease center" />
-								<Input value="1" className="quantity-num" />
-								<Icon type="plus" className="increase center" />
-							</span>
+							<Quantity value={this.state.quantity} onDecrease={this.onDecrease} onIncrease={this.onIncrease} />
 							<Button className="add-to-cart" type="danger">加入购物车</Button>
 							<span className="add-favorite"><Icon type="heart" />关注</span>
 						</div>
