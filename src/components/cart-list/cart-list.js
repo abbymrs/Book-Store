@@ -41,7 +41,7 @@ export default function CartList(props) {
 				>
 					<img src={goodSection.url} alt={goodSection.title} />
 					<div className="goods-desc">
-						<div>{goodSection.title}</div>
+						<div className="goods-desc-title">{goodSection.title}</div>
 						<div>{goodSection.author}</div>
 					</div>
 				</div>
@@ -79,10 +79,6 @@ export default function CartList(props) {
 	];
 	return (
 		<div className="cart-list">
-			<div className="cart-name-wrapper">
-				<img src="/images/logo.png" alt="logo" />
-				<span className="cart-name">购物车</span>
-			</div>
 			<div className="red all-goods">
 				<span>全部商品</span>
 				<span className="goods-number">{props.books.length}</span>

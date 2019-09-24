@@ -24,30 +24,27 @@ const routes = [
     { path: '/login', component: Login },
     { path: '/register', component: Register },
     { path: '/books/:id', component: BookDetail },
+    { path: '/cart', component: Cart },
+    { path: '/password', component: Test },
+    { path: '/orders/:id', component: OrderDetail },
     {
         path: '/user',
         component: UserCenter,
         routes: [
-            { path: '/user/address', component: Test },
+            { path: '/user/address', component: Test, exact: true },
             { path: '/user/address/:name', component: Test },
-            { path: '/user/orders', component: Orders },
-            { path: '/user/orders/:id', component: OrderDetail },
-            { path: '/user/orders/getOrderInfo', component: Test },
+            { path: '/user/orders', component: Orders, exact: true },
+            { path: '/user/orders/:id/getOrderInfo', component: Test },
             { path: '/user/orders/done', component: DoneOrder },
             { path: '/user/favorites', component: Test },
-            { path: '/user/password', component: Test },
-            { path: '/user/cart', component: Cart }
         ]
     }
 ];
 
-// const routeComponents = routes.map(({ path, component }, key) => (
-//     <Route exact path={path} component={component} key={key} />
-// ));
 const routeComponents = routes.map((route, key) => (
     <RouteWithSubRoutes key={key} {...route} />
 ));
-function NoMatch({ location }) {
+export function NoMatch({ location }) {
     return (
         <div style={{ textAlign: 'center' }}>
             <h3>
@@ -56,8 +53,8 @@ function NoMatch({ location }) {
         </div>
     );
 }
-function Test() {
-    return <div>test</div>;
+function Test(props) {
+    return <div>test {props.match.path}</div>;
 }
 
 @connect(
@@ -93,7 +90,7 @@ class AppRouter extends Component {
                                 {!user.isLogin && <Link to="/login/"><span className="sign-in">Sign in</span></Link>}
                                 {user.isLogin &&
                                     <div className="center">
-                                        <span className="user-name">{user.username}</span>
+                                        <Link to="/user/orders" className="user-name">{user.username}</Link>
                                     </div>}
                             </div>
                         </div>

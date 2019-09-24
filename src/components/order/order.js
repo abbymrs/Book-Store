@@ -1,14 +1,8 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import './order.less';
 
 export default function Order(props) {
-    function viewBookDetail(book, e) {
-        e.preventDefault();
-        props.history.push('/books/' + book.id);
-    }
-    function applyPostSaleService(e) {
-        e.preventDefault();
-    }
     const { orders } = props;
     return (
         <div className="order-list-wrapper font-sm">
@@ -35,11 +29,11 @@ export default function Order(props) {
                                 <li className="align-vertical order-item" key={book.id}>
                                     <div className="col1 order-img align-vertical">
                                         <img src={book.img} alt="" />
-                                        <a href="/" onClick={viewBookDetail.bind(this, book)}>{book.title}</a>
+                                        <Link to={`/books/${book.id}`}>{book.title}</Link>
                                     </div>
                                     <div className="col2">x{book.quantity}</div>
                                     <div className="col3">
-                                        <a href="/" onClick={applyPostSaleService}>申请售后</a>
+                                        <Link to={`/user/orders/${order.number}/getOrderInfo`}>申请售后</Link>
                                     </div>
                                 </li>
                             ))}
