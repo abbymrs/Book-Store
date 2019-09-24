@@ -57,6 +57,11 @@ code {
     justify-content: flex-end;
 }
 
+.align-vertical-col {
+    &:extend(.align-vertical);
+    flex-direction: column;
+}
+
 .font-sm {
     font-size: @font-size-sm;
 }
@@ -91,4 +96,8 @@ code {
 
 .green-7 {
     color: @green-7;
+}
+
+.white-bg {
+    background-color: #fff;
 }

@@ -9,11 +9,13 @@ import Register from './containers/register/register';
 import BookDetail from './containers/book-detail/book-detail';
 import UserCenter from './containers/user/user';
 import Cart from "./containers/cart/cart";
-import OrderDetail from './containers/order-detail/order-detail';
+import OrderComfirmation from './containers/order-confirm/order-confirm';
 import DoneOrder from './containers/done-order/done-order';
 import Orders from './containers/orders/orders';
 import SearchInput from './components/search/search';
 import RouteWithSubRoutes from './components/route-with-sub-route/route-with-sub-route';
+import OrderDetail from './containers/order-detail/order-detail';
+import Favorites from './containers/favorites/favorites';
 
 import logo from './logo.svg';
 import './App.less';
@@ -26,7 +28,7 @@ const routes = [
     { path: '/books/:id', component: BookDetail },
     { path: '/cart', component: Cart },
     { path: '/password', component: Test },
-    { path: '/orders/:id', component: OrderDetail },
+    { path: '/orders/:id/confirmation', component: OrderComfirmation },
     {
         path: '/user',
         component: UserCenter,
@@ -35,8 +37,9 @@ const routes = [
             { path: '/user/address/:name', component: Test },
             { path: '/user/orders', component: Orders, exact: true },
             { path: '/user/orders/:id/getOrderInfo', component: Test },
+            { path: '/user/orders/:id', component: OrderDetail },
             { path: '/user/orders/done', component: DoneOrder },
-            { path: '/user/favorites', component: Test },
+            { path: '/user/favorites', component: Favorites },
         ]
     }
 ];
@@ -66,7 +69,6 @@ class AppRouter extends Component {
         this.onSearch = this.onSearch.bind(this);
         this.signOut = this.signOut.bind(this);
     }
-
     onSearch() {
         console.log('search');
     }

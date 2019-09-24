@@ -94,9 +94,6 @@ class Home extends Component {
         };
         this.addFavorite = this.addFavorite.bind(this);
     }
-    onSearch() {
-        console.log('search');
-    }
     addFavorite(book) {
         const { user, favoriteBooks } = this.props;
 
@@ -115,7 +112,6 @@ class Home extends Component {
     render() {
         return (
             <div className="home-page">
-                {/* <SearchInput onSearch={this.onSearch} /> */}
                 <Books books={this.state.books} addFavorite={this.addFavorite} {...this.props} />
             </div>
         );

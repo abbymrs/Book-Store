@@ -1,0 +1,25 @@
+@import "../../../node_modules/antd/lib/style/themes/default.less";
+
+.favorites-wrapper {
+    .books-list {
+        // justify-content: space-around;
+        margin-left: 8px;
+
+        .book-item {
+            border-color: @normal-color;
+            margin-right: 10px;
+            width: 230px;
+            padding: 20px;
+
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
+
+            &:hover {
+                .book-detail-section .hover-show {
+                    display: none;
+                }
+            }
+        }
+    }
+}

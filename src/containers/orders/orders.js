@@ -73,7 +73,7 @@ export default class Orders extends Component {
 	}
 	viewOrderDetail = (order, e) => {
 		e.preventDefault();
-		this.props.history.push('/orders/' + order.number);
+		this.props.history.push('/user/orders/' + order.number);
 	}
 	render() {
 		const { props } = this;
