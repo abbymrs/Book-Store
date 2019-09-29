@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from 'antd';
 
-export default function BookItem({ book, onClick, addFavorite }) {
+export default function BookItem({ book, onClick, actionHandler, actionText = '关注' }) {
 	const filledColor = (() => {
 		return book.isFavarite ? 'red' : '';
 	})();
@@ -16,7 +16,7 @@ export default function BookItem({ book, onClick, addFavorite }) {
 				</div>
 				<div className="gray-color">{book.publisher}</div>
 				<div className="actions align-vertical">
-					<span className="add-favorite" onClick={() => addFavorite(book)}><Icon type="heart" fill={filledColor} />关注</span>
+					<span className="add-favorite" onClick={() => actionHandler(book)}><Icon type="heart" fill={filledColor} />{actionText}</span>
 					<i className="separator"></i>
 					<span className="add-to-cart red"><Icon type="shopping-cart" />加入购物车</span>
 				</div>

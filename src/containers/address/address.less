@@ -1,0 +1,101 @@
+@import "../../../node_modules/antd/lib/style/color/colors.less";
+@import "../../../node_modules/antd/lib/style/themes/default.less";
+
+.address-list-wrapper {
+    padding: 10px;
+    margin-top: 10px;
+    position: relative;
+
+    .dl {
+        .dt {
+            width: 70px;
+            text-align: right;
+        }
+
+        .dd {
+            padding-left: 20px;
+        }
+    }
+
+    .add-address {
+        margin-bottom: 10px;
+    }
+
+    .address-list {
+        .address-list-item {
+            position: relative;
+            border: 2px solid @normal-color;
+            margin-bottom: 10px;
+            padding: 10px;
+
+            .address-item-header {
+                margin-bottom: 10px;
+
+                .consignee {
+                    margin: 0;
+                }
+
+                .default-address {
+                    background-color: @orange-6;
+                    padding: 1px 5px;
+                    margin-left: 5px;
+                }
+            }
+
+            .actions,
+            .address-delete {
+                position: absolute;
+                right: 10px;
+                cursor: pointer;
+            }
+
+            .actions {
+                color: @blue-6;
+                bottom: 10px;
+
+                span:hover {
+                    color: @red-6;
+                }
+
+                .set-default-address {
+                    margin-right: 10px;
+                }
+            }
+
+            .address-delete {
+                top: 10px;
+                height: 13px;
+                width: 13px;
+                // visibility: hidden;
+                background: url(/images/close.png) no-repeat;
+            }
+        }
+    }
+}
+
+.add-address-modal {
+    &.ant-modal-confirm .ant-modal-body {
+        padding: 0;
+
+        .ant-modal-confirm-body {
+            >.anticon+.ant-modal-confirm-title+.ant-modal-confirm-content {
+                margin-left: 0;
+            }
+
+            .ant-modal-confirm-title {
+                padding: 8px 20px;
+                background-color: @disabled-bg;
+                font-size: @font-size-base;
+            }
+
+            .ant-modal-confirm-content {
+                padding: 10px 20px 0;
+            }
+        }
+
+        .ant-modal-confirm-btns {
+            padding: 0 20px 20px 0;
+        }
+    }
+
+}

@@ -2,12 +2,13 @@ import React from 'react';
 import { Route } from "react-router-dom";
 
 export default function RouteWithSubRoutes(route) {
+    const { exact, path, routes } = route;
     return (
         <Route
-            exact={route.exact}
-            path={route.path}
+            exact={exact}
+            path={path}
             render={props => (
-                <route.component {...props} routes={route.routes} />
+                <route.component {...props} routes={routes} />
             )}
         />
     );

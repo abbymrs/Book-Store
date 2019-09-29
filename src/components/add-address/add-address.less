@@ -1,0 +1,57 @@
+@import "../../../node_modules/antd/lib/style/themes/default.less";
+
+.add-address-wrapper {
+    .add-address {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        z-index: 10;
+        padding: 50px 20px 20px;
+        width: 600px;
+
+        .add-address-title {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: @disabled-bg;
+            height: 30px;
+            line-height: 30px;
+            padding-left: 20px;
+            font-size: @font-size-base;
+        }
+
+        .ant-form-item {
+            margin-bottom: 10px;
+        }
+
+        .ant-form-item-children {
+            width: 100%;
+        }
+
+        .submit-btn {
+            label {
+                visibility: hidden;
+            }
+        }
+    }
+
+    .close-icon {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .mask {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .3);
+        z-index: 9;
+    }
+}

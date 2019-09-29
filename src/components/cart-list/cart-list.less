@@ -1,7 +1,9 @@
 @import "../../../node_modules/antd/lib/style/color/colors.less";
 @import "../../../node_modules/antd/lib/style/themes/default.less";
+@import "../../mixin.less";
 
 .cart-list {
+    background-color: #fff;
 
     .ant-table-thead>tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td,
     .ant-table-tbody>tr.ant-table-row-hover:not(.ant-table-expanded-row):not(.ant-table-row-selected)>td,
@@ -24,24 +26,8 @@
         }
     }
 
-    .cart-name-wrapper {
-        position: relative;
-
-        img {
-            width: 130px;
-        }
-
-        .cart-name {
-            position: absolute;
-            bottom: -6px;
-            left: 140px;
-            font-size: @heading-4-size;
-            font-weight: 500;
-        }
-    }
-
     .goods-section {
-        width: 300px;
+        width: 200px;
         cursor: pointer;
 
         img {
@@ -49,8 +35,15 @@
             height: 80px;
         }
 
-        .goods-desc:hover {
-            color: @red-6;
+
+        .goods-desc {
+            &:hover {
+                color: @red-6;
+            }
+
+            .goods-desc-title {
+                .elipsis();
+            }
         }
     }
 
@@ -80,8 +73,7 @@
     }
 
     .all-goods {
-        margin-top: 50px;
-        padding-bottom: 10px;
+        padding: 10px;
         border-bottom: 1px solid @normal-color;
         font-weight: 500;
         position: relative;
@@ -112,8 +104,7 @@
     }
 
     .order-actions {
-        padding: 20px 0 0;
-        // border-bottom: 1px solid @normal-color;
+        padding: 20px;
     }
 
     .order-actions {
