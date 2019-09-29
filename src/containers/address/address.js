@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button } from "antd";
 import './address.less';
+import AddAddressForm from '../../components/add-address/add-address';
 
 export default class Address extends Component {
     state = {
@@ -35,14 +36,28 @@ export default class Address extends Component {
                 email: '',
                 id: 'd678f23e-a8d-4h73-a688-aca699b416d4',
             }
-        ]
+        ],
+        isAdding: false
+    }
+    addAddress = () => {
+        this.setState({
+            isAdding: true
+        });
+    }
+    onSubmit = () => {
+        console.log('submit');
+    }
+    onClose = () => {
+        this.setState({
+            isAdding: false
+        });
     }
     render() {
-
+        const { isAdding } = this.state;
         return (
             <div className="address-list-wrapper white-bg">
                 <div className="add-address align-vertical">
-                    <Button type="primary" ghost>新增地址</Button>
+                    <Button type="primary" ghost onClick={this.addAddress}>新增地址</Button>
                 </div>
                 <ul className="address-list">
                     {this.state.address.map(add => (
@@ -89,6 +104,9 @@ export default class Address extends Component {
                         </li>
                     ))}
                 </ul>
+                {isAdding &&
+                    <AddAddressForm onClose={this.onClose} />
+                }
             </div>
         );
     }

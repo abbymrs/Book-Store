@@ -4,6 +4,7 @@
 .address-list-wrapper {
     padding: 10px;
     margin-top: 10px;
+    position: relative;
 
     .dl {
         .dt {
@@ -36,7 +37,7 @@
 
                 .default-address {
                     background-color: @orange-6;
-                    padding: 1px 3px;
+                    padding: 1px 5px;
                     margin-left: 5px;
                 }
             }
@@ -70,4 +71,31 @@
             }
         }
     }
+}
+
+.add-address-modal {
+    &.ant-modal-confirm .ant-modal-body {
+        padding: 0;
+
+        .ant-modal-confirm-body {
+            >.anticon+.ant-modal-confirm-title+.ant-modal-confirm-content {
+                margin-left: 0;
+            }
+
+            .ant-modal-confirm-title {
+                padding: 8px 20px;
+                background-color: @disabled-bg;
+                font-size: @font-size-base;
+            }
+
+            .ant-modal-confirm-content {
+                padding: 10px 20px 0;
+            }
+        }
+
+        .ant-modal-confirm-btns {
+            padding: 0 20px 20px 0;
+        }
+    }
+
 }

@@ -17,7 +17,7 @@ class ForgotPassword extends Component {
 		const { getFieldDecorator } = this.props.form;
 		const formItemLayout = {
 			labelCol: {
-				sm: { span: 5 },
+				sm: { span: 7 },
 			},
 			wrapperCol: {
 				sm: { span: 12 }
